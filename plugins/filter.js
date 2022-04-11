@@ -7,7 +7,7 @@ const MyPnk = require('../events');
 const {MessageType, Mimetype } = require('@adiwajshing/baileys');
 const FilterDb = require('./sql/filters');
 const Config = require('../config')
-const afnp = Spark.PLKAFN !== false ? Spark.PLKAFN.split(',') : [];
+const afnp = Sana.PLKAFN !== false ? Sana.PLKAFN.split(',') : [];
 const jid = Config.DISBGM !== false ? Config.DISBGM.split(',') : [];
 const Language = require('../language');
 const Lang = Language.getString('filters');
@@ -219,7 +219,7 @@ async function checkImAdmin(message, user = message.client.user.jid) {
  
      MyPnk.addCommand({on: 'text', fromMe: false,onlyGroup: true}, (async (message, match) => {
 
-        if(Spark.afnp !== 'false'){
+        if(Sana.afnp !== 'false'){
         let banned = jid.find( Jid => Jid === message.jid);
         if(banned !== undefined) return
         
